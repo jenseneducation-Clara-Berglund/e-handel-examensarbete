@@ -1,0 +1,27 @@
+const axios = require('axios');
+
+export const registerUser = async (fullName, email, password) => {
+    return await axios.post('/user/register/', {
+        fullName,
+        email,
+        password,
+    });
+}
+
+export const login = async (email, password) => {
+    let data = await axios.post('/user/login/', {
+        email,
+        password,
+    });
+
+    axios.defaults.headers.common['Authorization'] = data.token;
+    return data
+};
+
+export const getProducts = async () => {
+    return await axios.get('/products/');
+}
+
+export const getProduct = async (id) => {
+    return await axios.get(`/products/${id}`);
+}

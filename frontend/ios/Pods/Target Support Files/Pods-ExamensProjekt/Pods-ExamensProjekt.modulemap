@@ -1,6 +1,0 @@
-module Pods_ExamensProjekt {
-  umbrella header "Pods-ExamensProjekt-umbrella.h"
-
-  export *
-  module * { export * }
-}

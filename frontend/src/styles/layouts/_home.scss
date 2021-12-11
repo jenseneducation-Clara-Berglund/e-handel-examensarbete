@@ -1,0 +1,14 @@
+
+@import '../base/colors';
+
+.home {
+    background-color: $color-primary;
+    flex: 1;
+    height: inherit;
+
+}
+
+.logo {
+    color: $color-secondary;
+    font-size: 4em;
+}
