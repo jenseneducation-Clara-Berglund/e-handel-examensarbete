@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const cors = require('cors');
 
 // Constants
 const PORT = 3000;
@@ -9,7 +10,8 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.use(express.json());
-
+app.use(cors());
+app.options('*', cors());
 const {
     createUser, login, checkSession, getAllProducts, getProductById
 } = require("./dbModule");
@@ -55,6 +57,7 @@ app.get('/products/', (req, res) => {
         const products = getAllProducts();
         res.send(products);
     } else {
+        res.status(403)
         res.send("Hello your session has expired.... !");
     }
 });
@@ -69,6 +72,7 @@ app.get("/products/:productId", (req, res) => {
         const product = getProductById(productId);
         res.send(product);
     } else {
+        res.status(403)
         res.send("Hello your session has expired.... !");
     }
 

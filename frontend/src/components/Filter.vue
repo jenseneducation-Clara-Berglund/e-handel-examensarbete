@@ -17,6 +17,7 @@
 <script>
 import Dropdown from "@/components/Dropdown.vue";
 export default {
+  name: "Filter",
   components: { Dropdown },
   data() {
     return {

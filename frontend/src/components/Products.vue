@@ -1,28 +1,33 @@
 <template>
-  <div class="productsContainer">
-    <ProductItem v-for="product in products" :key="product.id />
+  <div id="productsContainer">
+    <ProductItem
+      v-for="product in products"
+      :key="product.id"
+      :product="product"
+    />
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import ProductItem from "./ProductItem.vue";
+
 export default {
+  components: { ProductItem },
   data() {
-    return {
-      products: [
-        {
-          id: 6,
-          name: "blackbag",
-          price: "1500sek",
-          imgURL:
-            "https://media.istockphoto.com/photos/black-leather-womens-tote-handbag-on-white-background-picture-id502935014?k=20&m=502935014&s=612x612&w=0&h=qgK79BRFuyk2e7Ba5nrx6PSUDhF4zU2Cg249vLTIgPU=",
-        },
-      ],
-    };
+    return {};
   },
-  created() {
-    products = await axios.get("api/products");
+  computed: {
+    ...mapGetters(["products"]),
+  },
+  methods: {
+    ...mapActions(["getProducts"]),
+  },
+  mounted() {
+    this.getProducts();
   },
 };
 </script>
-<style scoped>
+<style lang="scss">
+@import "../styles/components/_products.scss";
 </style>

@@ -3,7 +3,6 @@
     <input type="text" v-model="currentText" />
   </div>
 </template>
-<script
 <script>
 export default {
   data() {

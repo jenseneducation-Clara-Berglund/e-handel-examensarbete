@@ -1,4 +1,9 @@
-const axios = require('axios');
+const _axios = require('axios');
+const axios = _axios.create({
+    baseURL: "http://localhost:3000/",
+});
+
+axios.defaults.headers.common['Authorization'] = "0.mjg2wplnqsh";
 
 export const registerUser = async (fullName, email, password) => {
     return await axios.post('/user/register/', {
