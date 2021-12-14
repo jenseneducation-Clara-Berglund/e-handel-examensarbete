@@ -1,5 +1,10 @@
 <template>
   <div id="productsContainer">
+    <Search
+      class="search"
+      @search-text-updated="searchProducts"
+      v-show="searchVisible"
+    />
     <ProductItem
       v-for="product in products"
       :key="product.id"
@@ -11,11 +16,13 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import ProductItem from "./ProductItem.vue";
+import Search from "./Search.vue";
 
 export default {
-  components: { ProductItem },
+  components: { ProductItem, Search },
+
   data() {
-    return {};
+    return { searchVisible: true };
   },
   computed: {
     ...mapGetters(["products"]),

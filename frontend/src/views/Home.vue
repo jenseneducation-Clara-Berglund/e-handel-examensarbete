@@ -1,9 +1,10 @@
 <template>
   <div class="home">
-    <Nav />
+    <Nav @cart-btn-clicked="toggleCart" @profile-btn-clicked="goToProfile" />
     <!-- <Nav @cart-btn-clicked="toggleCart" @search-btn-clicked="toggleSearch" /> -->
     <div class="logo"></div>
-    <Search class="search" />
+
+    <!-- <Search class="search" /> -->
     <!-- <Search
       class="search"
       @search-text-updated="searchProducts"
@@ -16,7 +17,7 @@
 </template>
 <script>
 import Nav from "@/components/Nav.vue";
-import Search from "@/components/Search.vue";
+// import Search from "@/components/Search.vue";
 import Filter from "@/components/Filter.vue";
 import Products from "@/components/Products.vue";
 
@@ -30,9 +31,18 @@ export default {
 
   components: {
     Nav,
-    Search,
+    // Search,
     Filter,
     Products,
+  },
+  methods: {
+    toggleCart() {
+      console.log("go to cart");
+    },
+
+    goToProfile() {
+      console.log("go to profile");
+    },
   },
 };
 </script>

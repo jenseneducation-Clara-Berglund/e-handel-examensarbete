@@ -1,7 +1,8 @@
 <template>
   <div id="nav">
-    <!-- <img @click="$emit('search-btn-clicked')" src="@/assets/search.png" class="search-btn"/> -->
     <Logo @clicked="toHomePage" />
+    <img src="@/assets/bag.png" @click="$emit('cart-btn-clicked')" />
+    <img src="@/assets/user.png" @click="$emit('profile-btn-clicked')" />
     <CartButton @clicked="$emit('cart-btn-clicked')" />
   </div>
 </template>
