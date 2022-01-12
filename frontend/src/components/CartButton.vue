@@ -1,13 +1,13 @@
 <template>
-  <img @click="$emit('clicked')" class="cart-button" />
+  <img @click="$emit('clicked')" class="cartButton" />
 </template>
 
 <script>
-export default {};
+
 </script>
 
 <style lang="scss" scoped>
-.cart-button {
+.cartButton {
   height: 25px;
 }
 </style>

@@ -1,53 +1,54 @@
 <template>
   <div class="home">
-    <Nav @cart-btn-clicked="toggleCart" @profile-btn-clicked="goToProfile" />
-    <!-- <Nav @cart-btn-clicked="toggleCart" @search-btn-clicked="toggleSearch" /> -->
-    <div class="logo"></div>
-
-    <!-- <Search class="search" /> -->
-    <!-- <Search
+    <Search
       class="search"
       @search-text-updated="searchProducts"
       v-show="searchVisible"
-    /> -->
-    <Filter @ />
-    <!-- <Filter @size-filtered="filterSize" @color-filtered="filterColor" /> -->
+    />
     <Products />
+    <!-- <AddToCartButton @click.native="$emit('add-to-cart', product)"/> -->
   </div>
 </template>
 <script>
-import Nav from "@/components/Nav.vue";
-// import Search from "@/components/Search.vue";
-import Filter from "@/components/Filter.vue";
-import Products from "@/components/Products.vue";
-
+import Search from '@/components/Search.vue'
+// import Filter from "@/components/Filter.vue";
+import Products from '@/components/Products.vue'
+// import AddToCartButton from "@/components/AddToCartButton.vue";
+import { mapActions } from 'vuex'
 export default {
-  name: "App",
+  name: 'App',
   data() {
     return {
-      searchVisible: true,
-    };
+      searchVisible: true
+    }
   },
 
   components: {
-    Nav,
-    // Search,
-    Filter,
-    Products,
+    Search,
+    // Filter,
+    Products
+    // AddToCartButton,
   },
   methods: {
-    toggleCart() {
-      console.log("go to cart");
+    searchProducts(searchTerm) {
+      // this.filteredProducts = this.products.filter((p) =>
+      //   p.name.toLowerCase().includes(searchTerm.toLowerCase())
+      // );
+      console.log('searching for  ' + searchTerm)
     },
 
-    goToProfile() {
-      console.log("go to profile");
+    toggleSearch() {
+      this.searchVisible = !this.searchVisible
     },
+    ...mapActions(['getCart'])
   },
-};
+  mounted() {
+    this.getCart()
+  }
+}
 </script>
 <style lang="scss">
-@import "../styles/layouts/_home.scss";
-@import "../styles/components/_logo.scss";
-@import "../styles/components/_search.scss";
+@import '../styles/layouts/_home.scss';
+@import '../styles/components/_logo.scss';
+@import '../styles/components/_search.scss';
 </style>

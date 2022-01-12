@@ -1,4 +1,6 @@
 import Home from '../views/Home.vue'
+import Cart from '../views/Cart.vue'
+import Profile from '../views/Profile.vue'
 
 const routes = [
     {
@@ -6,6 +8,18 @@ const routes = [
         name: 'Home',
         component: Home
     },
+
+    {
+        path: '/cart',
+        name: 'Cart',
+        component: Cart
+    },
+
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
+    }
 
 ]
 

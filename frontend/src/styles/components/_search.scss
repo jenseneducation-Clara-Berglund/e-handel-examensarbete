@@ -1,12 +1,13 @@
 .searchContainer {
-    position: fixed;
-    top: 65px;
-    left: 50%;
-    width: 300px;
-    margin-left: -150px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
     input{
-      width: 300px;
-      height: 20px;
-      border-radius: 5px;
+      flex: 0.3;
+      display: flex;
+      height: 30px;
+      border-radius: 0.2em;
+      padding: 10px 20px;
+      font-size: 25px;
     }
   }

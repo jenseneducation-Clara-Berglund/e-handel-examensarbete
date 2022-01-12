@@ -1,0 +1,27 @@
+@import '../base/colors';
+
+.productModalContainer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    bottom: 0px;
+    left:0px;
+    right:0px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal {
+
+    height: 500px;
+    width: 550px;
+    background-color: white;
+}
+
+.closeButtonContainer {
+    display:flex;
+    justify-content: flex-end;
+}

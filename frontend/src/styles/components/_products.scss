@@ -1,10 +1,20 @@
 @import '../base/colors';
 
 #productsContainer {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-primary;
+}
 
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: $color-primary;
+#productItemsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search {
+  display: flex;
 }

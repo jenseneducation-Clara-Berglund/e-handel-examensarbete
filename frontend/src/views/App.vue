@@ -1,13 +1,33 @@
 <template>
   <div id="app">
+  <Nav @cart-btn-clicked="goToCart"
+     @profile-btn-clicked="goToProfile"
+     @logo-btn-clicked="goToHome"/>
     <router-view />
   </div>
 </template>
 
 <script>
+import Nav from "@/components/Nav.vue";
 export default {
   name: "App",
-  components: {},
+  components: {
+    Nav,
+  },
+  methods: {
+    goToHome() {
+        this.$router.replace("/");
+        console.log("hej")
+    },
+    goToCart(){
+      this.$router.push("/cart");
+    },
+    
+    goToProfile(){
+      this.$router.push("/profile");
+    },
+  }
+
 };
 </script>
 

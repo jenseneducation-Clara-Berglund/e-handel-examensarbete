@@ -3,6 +3,7 @@
     <input type="text" v-model="currentText" />
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -18,3 +19,4 @@ export default {
 <style lang="scss">
 @import "../styles/components/_search.scss";
 </style>
+

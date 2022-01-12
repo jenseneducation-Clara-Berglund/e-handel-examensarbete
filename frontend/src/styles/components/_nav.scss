@@ -1,11 +1,42 @@
+@import '../base/colors';
+
 #nav {
-  padding: 5px 20px 5px 20px;
+  padding: 5px 30px 5px 30px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  img {
-    height: 25px;
+  background-color: $color-primary;
+
+  #titleContainer {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .logo {
+    color: $color-secondary;
+    font-size: 9em;
     cursor: pointer;
+  }
+
+  #iconContainer {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    justify-items: flex-end;
+  }
+
+  img {
+    height: 65px;
+    cursor: pointer;
+    padding-left: 1em;
+  }
+
+  .itemCounterContainer {
+    display: flex;
+    margin-top: 3em;
+    margin-left: 0.3em;
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
   }
 }

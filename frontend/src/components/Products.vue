@@ -1,40 +1,51 @@
 <template>
   <div id="productsContainer">
-    <Search
-      class="search"
-      @search-text-updated="searchProducts"
-      v-show="searchVisible"
-    />
-    <ProductItem
-      v-for="product in products"
-      :key="product.id"
-      :product="product"
-    />
+    <div id="productItemsContainer">
+      <ProductItem
+        v-for="product in products"
+        @click.native="selectProduct(product)"
+        :key="product.id"
+        :product="product"
+      />
+      <ProductModal
+        v-if="showModal == true"
+        @close="showModal = false"
+        :product="selectedProduct"
+        @add-to-cart="addToCart"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-import ProductItem from "./ProductItem.vue";
-import Search from "./Search.vue";
+import { mapGetters, mapActions } from 'vuex'
+import ProductItem from './ProductItem.vue'
+import ProductModal from './ProductModal.vue'
 
 export default {
-  components: { ProductItem, Search },
+  components: { ProductItem, ProductModal },
 
   data() {
-    return { searchVisible: true };
+    return { searchVisible: true, showModal: false, selectedProduct: null }
   },
   computed: {
-    ...mapGetters(["products"]),
+    ...mapGetters(['products', 'cart'])
   },
   methods: {
-    ...mapActions(["getProducts"]),
+    ...mapActions(['getProducts', 'addProductToCart']),
+    selectProduct(product) {
+      this.showModal = true
+      this.selectedProduct = product
+    },
+    addToCart(product) {
+      this.addProductToCart(product.id)
+    }
   },
   mounted() {
-    this.getProducts();
-  },
-};
+    this.getProducts()
+  }
+}
 </script>
 <style lang="scss">
-@import "../styles/components/_products.scss";
+@import '../styles/components/_products.scss';
 </style>
