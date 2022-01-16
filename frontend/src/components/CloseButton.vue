@@ -1,12 +1,11 @@
 <template>
-  <img src="@/assets/close.png" class="closeButton"/> 
+  <img src="@/assets/close.png" class="closeButton" />
 </template>
 
 <script>
-export default {
-};
+export default {}
 </script>
 
 <style lang="scss">
-@import "../styles/components/_closeButton.scss";
+@import '../styles/components/_closeButton.scss';
 </style>

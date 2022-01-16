@@ -4,7 +4,21 @@
   justify-content: center;
   flex-direction: column;
   margin: 5em;
+  background-color: white;
+  padding: 2em;
+  border-radius: 1em;
+  box-shadow: 4px 4px 0px 2px rgba(0, 0, 0, 0.2);
 }
+
 .productItemImage {
   height: 14em;
+  width: 20em;
+  height: 20em;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+h5 {
+  font-size: 20px;
+  text-transform: capitalize;
 }

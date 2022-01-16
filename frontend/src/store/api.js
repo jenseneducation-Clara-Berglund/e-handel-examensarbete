@@ -39,6 +39,15 @@ export const addProductToCart = async (id) => {
   return await axios.post(`/cart/add/${id}`)
 }
 
-export const removeProductFromCart = async (id) => {
-  return await axios.delete(`/cart/remove/${id}`)
+export const removeProductFromCart = async (cartProductId) => {
+  return await axios.delete(`/cart/remove/${cartProductId}`)
 }
+
+// removeMenuItem({ state, commit }, item) {
+//   let cart = state.cart;
+//   let firstOccuranceIndex = cart.findIndex(i => i.id === item.id);
+//   if (firstOccuranceIndex !== -1) {
+//     cart.splice(firstOccuranceIndex, 1);
+//   }
+//   commit("setCart", cart);
+// }

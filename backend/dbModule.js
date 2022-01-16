@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require("uuid");
 const low = require("lowdb");
 const md5 = require("md5");
 const FileSync = require("lowdb/adapters/FileSync");
@@ -118,14 +119,19 @@ module.exports = {
     var cartProducts = cart.value().products;
     const product = db.get("products").find({ id: productId }).value();
     console.log(product, productId, email);
-    cartProducts.push(product);
+
+    let randomId = uuidv4();
+
+    cartProducts.push({ ...product, cartProductId: randomId });
     cart.assign({ products: cartProducts }).write();
     return cart;
   },
 
-  removeProductFromCart: (email, productId) => {
+  removeProductFromCart: (email, cartProductId) => {
     let cart = db.get("carts").find({ userId: email });
-    var cartProducts = cart.value().products.filter((p) => p.id !== productId);
+    var cartProducts = cart
+      .value()
+      .products.filter((p) => p.cartProductId !== cartProductId);
     cart.assign({ products: cartProducts }).write();
     return cart;
   },

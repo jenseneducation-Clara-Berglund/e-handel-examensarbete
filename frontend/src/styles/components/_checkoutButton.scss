@@ -1,12 +1,9 @@
 @import '../base/colors';
 
-.addToCart {
+.proceedToCheckoutBtn {
   height: 45px;
-  width: 100%;
+  width: 125px;
   background-color: $color-primary;
   color: $color-secondary;
   cursor: pointer;
-  border-radius: 0.5em;
-  border-style: none;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }

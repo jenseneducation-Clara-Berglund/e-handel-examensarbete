@@ -1,30 +1,46 @@
 <template>
   <div class="cartContainer">
-    <CartItem
-      v-for="(product, index) in cart.products"
-      :key="product.id.toString() + index"
-      :product="product"
-      @remove-product-from-cart="removeProductFromCart"
-    />
+    <div style="justify-content: center; display: flex">
+      <h1>Din kundvagn</h1>
+      <div class="cartItemContainer">
+        <CartItem
+          v-for="product in cart.products"
+          :key="product.cartProductId"
+          :product="product"
+          @remove-product-from-cart="removeProductFromCart"
+        />
+      </div>
+    </div>
+    <div class="checkoutBtnAndTotalContainer">
+      <p>{{ 'total ' + this.calculatePrice() + ':-' }}</p>
+      <CheckoutButton @click.native="$router.push('/checkout')" />
+    </div>
   </div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import CartItem from '@/components/CartItem.vue'
+import CheckoutButton from '../components/CheckoutButton.vue'
 
 export default {
   computed: mapGetters(['cart']),
 
   methods: {
     ...mapActions(['getCart', 'removeProductFromCart']),
-    removeProduct(productId) {
-      console.log('removing ', productId)
-      this.removeProductFromCart(productId)
+    removeProduct(cartProductId) {
+      console.log('removing ', cartProductId)
+      this.removeProductFromCart(cartProductId)
+    },
+    calculatePrice() {
+      let price = this.cart.products.reduce((e, a) => e + parseInt(a.price), 0)
+      console.log(typeof price)
+      return price
     }
   },
 
   components: {
-    CartItem
+    CartItem,
+    CheckoutButton
   },
   mounted() {
     this.getCart()

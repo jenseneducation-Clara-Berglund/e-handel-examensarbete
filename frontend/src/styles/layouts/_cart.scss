@@ -2,8 +2,34 @@
 
 .cartContainer {
   background-color: $color-primary;
-  background-color: pink;
   display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartItemContainer {
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+  padding: 1.5em;
+  overflow: scroll;
+}
+
+.checkoutBtnAndTotalContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: row;
+  width: 50%;
+  h2 {
+    font-size: 40px;
+    margin: 0px 10px;
+    padding: 0;
+  }
+  padding: 25px;
 }

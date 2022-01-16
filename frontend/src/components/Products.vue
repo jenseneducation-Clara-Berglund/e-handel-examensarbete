@@ -3,7 +3,8 @@
     <div id="productItemsContainer">
       <ProductItem
         v-for="product in products"
-        @click.native="selectProduct(product)"
+        @on-img-click="selectProduct(product)"
+        @add-to-cart="addToCart"
         :key="product.id"
         :product="product"
       />

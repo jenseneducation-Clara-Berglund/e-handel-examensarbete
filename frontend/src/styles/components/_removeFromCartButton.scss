@@ -1,0 +1,10 @@
+@import '../base/colors';
+
+.removeFromCart {
+  height: 30px;
+  width: 100px;
+  background-color: $color-secondary;
+  color: black;
+  cursor: pointer;
+  border-style: none;
+}

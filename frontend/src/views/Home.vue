@@ -6,7 +6,6 @@
       v-show="searchVisible"
     />
     <Products />
-    <!-- <AddToCartButton @click.native="$emit('add-to-cart', product)"/> -->
   </div>
 </template>
 <script>
@@ -27,7 +26,6 @@ export default {
     Search,
     // Filter,
     Products
-    // AddToCartButton,
   },
   methods: {
     searchProducts(searchTerm) {

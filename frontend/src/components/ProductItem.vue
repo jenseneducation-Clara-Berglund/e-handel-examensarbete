@@ -1,15 +1,19 @@
 <template>
   <div class="productItemContainer">
-    <img class="productItemImage" :src="product.imgURL" />
+    <img
+      class="productItemImage"
+      :src="product.imgURL"
+      @click="$emit('on-img-click')"
+    />
     <div>
       <h5>{{ product.name }}</h5>
-      <h5>{{ product.price }}</h5>
+      <h5>{{ product.price }} kr</h5>
     </div>
-    <AddToCartButton @:click.native="addToCart(product)"/>
+    <AddToCartButton @click.native="addToCart()" />
   </div>
 </template>
 <script>
-import  AddToCartButton from "../components/AddToCartButton.vue";
+import AddToCartButton from '../components/AddToCartButton.vue'
 
 export default {
   components: {
@@ -17,16 +21,16 @@ export default {
   },
 
   props: {
-    product: {},
+    product: {}
   },
 
   methods: {
     addToCart() {
-      this.$emit('add-to-cart', this.product.id, 1);
+      this.$emit('add-to-cart', this.product)
     }
+  }
 }
-};
 </script>
 <style lang="scss">
-@import "../styles/components/_productItem.scss";
+@import '../styles/components/_productItem.scss';
 </style>

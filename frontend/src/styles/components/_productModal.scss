@@ -1,27 +1,46 @@
 @import '../base/colors';
 
 .productModalContainer {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top:0px;
-    bottom: 0px;
-    left:0px;
-    right:0px;
-    background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal {
+  width: 100em;
+  height: 100em;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  border-radius: 2em;
+  align-items: center;
+}
+.modalContent {
+  flex-direction: column;
+  align-self: center;
+  justify-self: center;
+  display: flex;
 
-    height: 500px;
-    width: 550px;
-    background-color: white;
+  img {
+    width: 50em;
+    height: 50em;
+    object-fit: fill;
+  }
+  h5 {
+    font-size: 50px;
+  }
 }
 
 .closeButtonContainer {
-    display:flex;
-    justify-content: flex-end;
+  display: inline;
+  align-self: flex-start;
 }

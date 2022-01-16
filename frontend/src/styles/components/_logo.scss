@@ -1,11 +1,8 @@
-
 @import '../base/colors';
 
-.home{
-    background-color: $color-primary;
-    flex: 1;
-    height: inherit;
-    
+.home {
+  background-color: $color-primary;
+  flex: 1;
+  height: inherit;
+  margin-top: 4em;
 }
-
-

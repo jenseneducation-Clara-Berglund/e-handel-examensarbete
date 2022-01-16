@@ -109,13 +109,13 @@ app.post("/cart/add/:productId/", (req, res) => {
     res.send("Hello your session has expired.... !");
   }
 });
-app.delete("/cart/remove/:productId/", (req, res) => {
+app.delete("/cart/remove/:cartProductId/", (req, res) => {
   let session = checkSession(req.headers.authorization);
-  let productId = parseInt(req.params.productId);
+  let cartProductId = req.params.cartProductId;
   if (session !== undefined) {
     //  "Hello your session exists!";
     const userId = session.user;
-    const cart = removeProductFromCart(userId, productId);
+    const cart = removeProductFromCart(userId, cartProductId);
     res.status(204);
     res.send();
   } else {

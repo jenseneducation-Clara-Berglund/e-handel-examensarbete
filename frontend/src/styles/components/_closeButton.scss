@@ -1,9 +1,10 @@
 @import '../base/colors';
 
 .closeButton {
-    height: 25px;
-    width: 25px;
-    padding: 1em;
-  
+  height: 5em;
+  width: 5em;
+  padding: 1em;
+  display: flex;
+
   //   background-color: pink;
-  }
+}
