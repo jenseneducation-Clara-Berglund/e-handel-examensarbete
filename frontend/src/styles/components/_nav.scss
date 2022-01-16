@@ -3,13 +3,14 @@
 #nav {
   padding: 5px 30px 5px 30px;
   display: flex;
-  background-color: $color-alt3;
+  background-color: $color-alt;
   margin: 0;
 
   #titleContainer {
     display: flex;
     flex: 1;
     justify-content: center;
+    text-shadow: 2px 2px #000;
   }
 
   .logo {

@@ -25,12 +25,12 @@ import ProductModal from './ProductModal.vue'
 
 export default {
   components: { ProductItem, ProductModal },
-
+  props: { products: [] },
   data() {
     return { searchVisible: true, showModal: false, selectedProduct: null }
   },
   computed: {
-    ...mapGetters(['products', 'cart'])
+    ...mapGetters(['cart'])
   },
   methods: {
     ...mapActions(['getProducts', 'addProductToCart']),
