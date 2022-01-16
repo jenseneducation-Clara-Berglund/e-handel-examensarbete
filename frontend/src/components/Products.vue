@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import ProductItem from './ProductItem.vue'
 import ProductModal from './ProductModal.vue'
 
@@ -29,9 +29,7 @@ export default {
   data() {
     return { searchVisible: true, showModal: false, selectedProduct: null }
   },
-  computed: {
-    ...mapGetters(['cart'])
-  },
+
   methods: {
     ...mapActions(['getProducts', 'addProductToCart']),
     selectProduct(product) {

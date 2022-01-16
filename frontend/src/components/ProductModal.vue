@@ -8,7 +8,7 @@
           <h5>{{ product.price }} kr</h5>
         </div>
         <div>
-          <AddToCartButton @click.native="$emit('add-to-cart', product)" />
+          <AddToCartButton @click.native="addToCart()" />
         </div>
       </div>
     </div>
@@ -22,7 +22,12 @@ export default {
   props: {
     product: {}
   },
-
+  methods: {
+    addToCart() {
+      this.$emit('add-to-cart', this.product)
+      this.$emit('close')
+    }
+  },
   components: {
     AddToCartButton
   }

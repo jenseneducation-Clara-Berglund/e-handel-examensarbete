@@ -6,7 +6,9 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  align-self: center;
   background-color: $color-primary;
+  width: 70%;
 }
 
 #productItemsContainer {

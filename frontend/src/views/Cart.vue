@@ -1,15 +1,13 @@
 <template>
   <div class="cartContainer">
-    <div style="justify-content: center; display: flex">
-      <h1>Din kundvagn</h1>
-      <div class="cartItemContainer">
-        <CartItem
-          v-for="product in cart.products"
-          :key="product.cartProductId"
-          :product="product"
-          @remove-product-from-cart="removeProductFromCart"
-        />
-      </div>
+    <h1>Din kundvagn</h1>
+    <div class="cartItemContainer">
+      <CartItem
+        v-for="product in cart.products"
+        :key="product.cartProductId"
+        :product="product"
+        @remove-product-from-cart="removeProductFromCart"
+      />
     </div>
     <div class="checkoutBtnAndTotalContainer">
       <p>{{ 'total ' + this.calculatePrice() + ':-' }}</p>

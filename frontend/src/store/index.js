@@ -4,7 +4,8 @@ import {
   addProductToCart,
   getCart,
   getProducts,
-  removeProductFromCart
+  removeProductFromCart,
+  axios
 } from './api'
 
 Vue.use(Vuex)
@@ -15,11 +16,15 @@ export default new Vuex.Store({
     cart: {
       userId: '',
       products: []
-    }
+    },
+    userToken: null
   },
   getters: {
     products(state) {
       return state.products
+    },
+    userToken(state) {
+      return state.userToken
     },
     product: (state) => (id) => {
       return state.products.find((item) => item.id == id)
@@ -34,6 +39,10 @@ export default new Vuex.Store({
     },
     Set_Cart(state, cart) {
       state.cart = cart
+    },
+    Set_UserToken(state, userToken) {
+      axios.defaults.headers.common['Authorization'] = userToken
+      state.userToken = userToken
     }
   },
   actions: {
@@ -45,7 +54,10 @@ export default new Vuex.Store({
         console.log(e)
       }
     },
-
+    async checkToken(context) {
+      context.commit('Set_UserToken', null)
+      context.commit('Set_UserToken', '0.mjg2wplnqsh')
+    },
     async getCart(context) {
       try {
         let response = await getCart()

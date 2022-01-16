@@ -1,5 +1,5 @@
 const _axios = require('axios')
-const axios = _axios.create({
+export const axios = _axios.create({
   baseURL: 'http://localhost:3000/'
 })
 

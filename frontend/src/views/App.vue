@@ -8,6 +8,7 @@
     <div style="display: flex; flex: 1; justify-content: center">
       <router-view />
     </div>
+    <LoginModal v-if="this.userToken === null" />
     <Footer
       @cart-btn-clicked="goToCart"
       @profile-btn-clicked="goToProfile"
@@ -19,13 +20,20 @@
 <script>
 import Nav from '@/components/Nav.vue'
 import Footer from '@/components/Footer.vue'
+import { mapGetters, mapActions } from 'vuex'
+import LoginModal from '../components/LoginModal.vue'
 export default {
   name: 'App',
   components: {
     Nav,
-    Footer
+    Footer,
+    LoginModal
+  },
+  computed: {
+    ...mapGetters(['userToken'])
   },
   methods: {
+    ...mapActions(['checkToken']),
     goToHome() {
       this.$router.replace('/')
       console.log('hej')
@@ -37,6 +45,9 @@ export default {
     goToProfile() {
       this.$router.push('/profile')
     }
+  },
+  async mounted() {
+    await this.checkToken()
   }
 }
 </script>
