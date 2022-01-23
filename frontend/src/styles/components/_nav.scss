@@ -3,7 +3,7 @@
 #nav {
   padding: 5px 30px 5px 30px;
   display: flex;
-  background-color: $color-alt;
+  background-color: $color-alt2;
   margin: 0;
 
   #titleContainer {
@@ -14,7 +14,8 @@
   }
 
   .logo {
-    color: $color-secondary;
+    color: #d8cec4;
+    // #979797 $color-secondary;
     font-size: 9em;
     cursor: pointer;
   }

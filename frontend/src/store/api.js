@@ -1,25 +1,28 @@
 const _axios = require('axios')
 export const axios = _axios.create({
-  baseURL: 'http://localhost:3000/'
+  baseURL: 'http://127.0.0.1:3000/'
 })
 
-axios.defaults.headers.common['Authorization'] = '0.mjg2wplnqsh'
+axios.defaults.headers.common['Content-Type'] = 'application/json'
 
 export const registerUser = async (fullName, email, password) => {
-  return await axios.post('/user/register/', {
-    fullName,
-    email,
-    password
-  })
+  try {
+    return await axios.post('/user/register/', {
+      fullName,
+      email,
+      password
+    })
+  } catch (e) {
+    console.log(e)
+  }
 }
 
 export const login = async (email, password) => {
-  let data = await axios.post('/user/login/', {
-    email,
-    password
-  })
+  console.log('email', email)
+  console.log('password', password)
 
-  axios.defaults.headers.common['Authorization'] = data.token
+  let data = await axios.post('/user/login/', { email, password })
+
   return data
 }
 

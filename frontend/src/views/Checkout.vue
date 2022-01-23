@@ -10,13 +10,14 @@
       <label for="emailInput">EMAIL</label>
       <input id="emailInput" type="email" placeholder="t.n@santassleigh.com" />
       <label for="addressInput">ADDRESS</label>
-      <input id="telehphone" type="phonenumber" placeholder="08-702 00 90" />
-      <label for="telehphone">Telefonnummer</label>
       <input
         id="addressInput"
         type="text"
         placeholder="Adress: Santa's street 123 45 NORTH POLE"
       />
+      <label for="telehphone">PHONE NUMBER</label>
+      <input id="telehphone" type="phonenumber" placeholder="08-702 00 90" />
+
       <div style="margin: 0.5em" />
 
       <h1>Hur vill du betala?</h1>

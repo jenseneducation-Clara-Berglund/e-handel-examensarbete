@@ -10,7 +10,7 @@
       />
     </div>
     <div class="checkoutBtnAndTotalContainer">
-      <p>{{ 'total ' + this.calculatePrice() + ':-' }}</p>
+      <p>{{ 'Total ' + this.calculatePrice() + ':-' }}</p>
       <CheckoutButton @click.native="$router.push('/checkout')" />
     </div>
   </div>

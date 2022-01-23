@@ -21,7 +21,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['products'])
+    ...mapGetters(['products', 'userToken'])
   },
   components: {
     Search,
@@ -43,6 +43,15 @@ export default {
       this.searchVisible = !this.searchVisible
     },
     ...mapActions(['getCart', 'getProducts'])
+  },
+  watch: {
+    async userToken(newToken, oldToken) {
+      console.log(newToken, oldToken)
+      // Our fancy notification (2).
+      await this.getCart()
+      await this.getProducts()
+      this.searchProducts(null)
+    }
   },
   async mounted() {
     await this.getCart()

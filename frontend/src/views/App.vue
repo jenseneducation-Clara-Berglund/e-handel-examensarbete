@@ -46,6 +46,7 @@ export default {
       this.$router.push('/profile')
     }
   },
+
   async mounted() {
     await this.checkToken()
   }
@@ -60,7 +61,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #89a07e;
+  background-color: #d8cec4;
   display: flex;
   flex-direction: column;
   flex: 1;

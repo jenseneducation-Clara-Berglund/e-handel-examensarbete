@@ -10,6 +10,7 @@ db.defaults({
   users: [],
   sessions: [],
   carts: [],
+  orders: [],
   products: [
     {
       id: 1,
@@ -144,7 +145,7 @@ module.exports = {
     console.log(user);
     if (user !== null) {
       // credentials OK. user allowed. Create session object
-      let expire_time = new Date().getTime() + 4 * 24 * 60 * 60;
+      let expire_time = new Date().getTime() + 4 * 24 * 60 * 60 * 1000;
       let sessionObject = {
         user: email,
         token: createRandomSessionToken(),
@@ -176,6 +177,34 @@ module.exports = {
   getProductById: (id) => {
     const product = db.get("products").find({ id: id }).value();
     return product;
+  },
+  createOrder: (userId, name, address, phone, paymentMethod) => {
+    let cart = db.get("carts").find({ userId: userId });
+    console.log("userId", userId);
+    console.log(cart.value());
+    order = {
+      userId,
+      status: "new",
+      name,
+      userId,
+      address,
+      phone,
+      paymentMethod,
+      products: cart.value().products,
+    };
+    let res = db
+      .get("orders")
+      .push({
+        order,
+      })
+      .write();
+    cart.assign({ products: [] }).write();
+    return order;
+  },
+  getOrderHistory: (userId) => {
+    let orders = db("orders").where({ order: { userId } });
+
+    return orders;
   },
 
   // // retrieves the right cart

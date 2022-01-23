@@ -5,7 +5,9 @@ import {
   getCart,
   getProducts,
   removeProductFromCart,
-  axios
+  axios,
+  login as apiLogin,
+  registerUser
 } from './api'
 
 Vue.use(Vuex)
@@ -41,11 +43,30 @@ export default new Vuex.Store({
       state.cart = cart
     },
     Set_UserToken(state, userToken) {
+      console.log('STORING VALUE ' + userToken)
       axios.defaults.headers.common['Authorization'] = userToken
+      localStorage.setItem('token', userToken)
       state.userToken = userToken
     }
   },
   actions: {
+    async login(context, { email, password }) {
+      try {
+        let response = await apiLogin(email, password)
+        context.commit('Set_UserToken', response.data.token)
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    async register(context, { fullName, email, password }) {
+      try {
+        let response = await registerUser(fullName, email, password)
+        context.commit('Set_UserToken', response.data.token)
+      } catch (e) {
+        console.log(e)
+      }
+    },
+
     async getProducts(context) {
       try {
         let response = await getProducts()
@@ -54,9 +75,13 @@ export default new Vuex.Store({
         console.log(e)
       }
     },
-    async checkToken(context) {
-      context.commit('Set_UserToken', null)
-      context.commit('Set_UserToken', '0.mjg2wplnqsh')
+    async checkToken({ commit }) {
+      let token = localStorage.getItem('token')
+      if (token && token !== undefined && token !== null) {
+        commit('Set_UserToken', token)
+      }
+      // context.commit('Set_UserToken', null)
+      // context.commit('Set_UserToken', '0.mjg2wplnqsh')
     },
     async getCart(context) {
       try {

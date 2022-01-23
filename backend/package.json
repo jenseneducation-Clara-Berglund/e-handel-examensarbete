@@ -1,17 +1,17 @@
 {
-    "name": "ClarasExamensProjekt",
-    "version": "1.0.0",
-    "description": "Node.js on Docker",
-    "author": "Clara Berglund <clara.mosesson@gmail.com>",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "cors": "^2.8.5",
-        "express": "^4.16.1",
-        "lowdb": "^1.0.0",
-        "md5": "^2.3.0",
-        "uuid": "^8.3.2"
-    }
+  "name": "ClarasExamensProjekt",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "Clara Berglund <clara.mosesson@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.1",
+    "lowdb": "^1.0.0",
+    "md5": "^2.3.0",
+    "uuid": "^8.3.2"
+  }
 }

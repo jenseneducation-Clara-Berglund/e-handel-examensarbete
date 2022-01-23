@@ -21,7 +21,10 @@ const {
   getOrCreateCartForUser,
   addProductToCart,
   removeProductFromCart,
+  createOrder,
+  getOrderHistory,
 } = require("./dbModule");
+const req = require("express/lib/request");
 
 app.post("/user/register/", (req, res) => {
   console.log(req.body);
@@ -118,6 +121,39 @@ app.delete("/cart/remove/:cartProductId/", (req, res) => {
     const cart = removeProductFromCart(userId, cartProductId);
     res.status(204);
     res.send();
+  } else {
+    res.status(403);
+    res.send("Hello your session has expired.... !");
+  }
+});
+
+app.post("/cart/checkout", (req, res) => {
+  let session = checkSession(req.headers.authorization);
+
+  if (session !== undefined) {
+    console.log(session);
+    let email = session.user;
+    let address = req.body.address;
+    let phone = req.body.phone;
+    let paymentMethod = req.body.paymentMethod;
+    const order = createOrder(email, "name", address, phone, paymentMethod);
+    res.status(201);
+    res.send(order);
+  } else {
+    res.status(403);
+    res.send("Hello your session has expired.... !");
+  }
+});
+
+app.get("/orderHistory", (req, res) => {
+  let session = checkSession(req.headers.authorization);
+
+  if (session !== undefined) {
+    //  "Hello your session exists!";
+    const userId = session.user;
+    const cart = getOrderHistory(userId);
+    res.status(200);
+    res.send(cart);
   } else {
     res.status(403);
     res.send("Hello your session has expired.... !");
