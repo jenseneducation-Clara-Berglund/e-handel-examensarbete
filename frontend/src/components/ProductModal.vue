@@ -5,7 +5,7 @@
         <img class="productItemImage" :src="product.imgURL" />
         <div>
           <h5>{{ product.name }}</h5>
-          <h5>{{ product.price }} kr</h5>
+          <h4>{{ product.price }} kr</h4>
         </div>
         <div>
           <AddToCartButton @click.native="addToCart()" />

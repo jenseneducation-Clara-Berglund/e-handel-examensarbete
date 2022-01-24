@@ -15,31 +15,36 @@
 
   .logo {
     color: #d8cec4;
-    // #979797 $color-secondary;
-    font-size: 9em;
     cursor: pointer;
   }
 
   #iconContainer {
     display: flex;
     flex: 1;
+
     justify-content: flex-end;
     align-items: center;
     justify-items: flex-end;
   }
 
   img {
-    height: 65px;
+    height: 2em;
     cursor: pointer;
     padding-left: 1em;
+    object-fit: contain;
   }
 
   .itemCounterContainer {
-    display: flex;
-    margin-top: 3em;
-    margin-left: 0.3em;
-    font-size: 1.5em;
+    width: 1em;
+    height: 1em;
+    align-self: flex-end;
+    border-radius: 0.7em;
+    padding: 2px;
+    margin-bottom: 15px;
+
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
+    background-color: white;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   }
 }

@@ -18,11 +18,22 @@ export const registerUser = async (fullName, email, password) => {
 }
 
 export const login = async (email, password) => {
-  console.log('email', email)
-  console.log('password', password)
-
   let data = await axios.post('/user/login/', { email, password })
+  return data
+}
 
+export const getUser = async () => {
+  let data = await axios.get('/user/me/')
+  return data
+}
+
+export const getOrderHistory = async () => {
+  let data = await axios.get('/orderHistory')
+  return data
+}
+
+export const createOrder = async () => {
+  let data = await axios.post('/cart/checkout')
   return data
 }
 

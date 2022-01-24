@@ -6,8 +6,12 @@
       <div class="logo" @click="$emit('logo-btn-clicked')">BAGS</div>
     </div>
     <div id="iconContainer">
-      <img src="@/assets/2bag.png" @click="$emit('cart-btn-clicked')" />
-      <div class="itemCounterContainer">
+      <img
+        v-if="cart.products.length > 0"
+        src="@/assets/2bag.png"
+        @click="$emit('cart-btn-clicked')"
+      />
+      <div v-if="cart.products.length > 0" class="itemCounterContainer">
         {{ cart.products.length }}
       </div>
       <img src="@/assets/2user.png" @click="$emit('profile-btn-clicked')" />

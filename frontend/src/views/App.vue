@@ -36,7 +36,6 @@ export default {
     ...mapActions(['checkToken']),
     goToHome() {
       this.$router.replace('/')
-      console.log('hej')
     },
     goToCart() {
       this.$router.push('/cart')

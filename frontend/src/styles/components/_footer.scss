@@ -1,7 +1,7 @@
 @import '../base/colors';
 
 #footer {
-  padding: 2em;
+  padding: 1em;
   display: flex;
   background-color: $color-alt2;
   justify-content: space-between;
@@ -13,10 +13,9 @@
     justify-content: flex-start;
   }
   h3 {
-    margin: 10px 2px;
     color: white;
-
     font-weight: bold;
+    margin: 0;
   }
   a {
     color: white;

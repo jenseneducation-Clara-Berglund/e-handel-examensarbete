@@ -26,7 +26,6 @@ export default {
   methods: {
     ...mapActions(['getCart', 'removeProductFromCart']),
     removeProduct(cartProductId) {
-      console.log('removing ', cartProductId)
       this.removeProductFromCart(cartProductId)
     },
     calculatePrice() {
@@ -40,6 +39,7 @@ export default {
     CartItem,
     CheckoutButton
   },
+
   mounted() {
     this.getCart()
   }

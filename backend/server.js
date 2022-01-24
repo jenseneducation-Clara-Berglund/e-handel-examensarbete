@@ -16,6 +16,7 @@ const {
   createUser,
   login,
   checkSession,
+  getUser,
   getAllProducts,
   getProductById,
   getOrCreateCartForUser,
@@ -51,6 +52,19 @@ app.post("/user/login/", (req, res) => {
     let session = login(email, password);
     res.status(201);
     res.json(session);
+  } catch (error) {
+    res.status(404);
+    res.json({ error: error });
+  }
+});
+
+app.get("/user/me/", (req, res) => {
+  let session = checkSession(req.headers.authorization);
+  console.log("session", session);
+  try {
+    let user = getUser(session.user);
+    res.status(200);
+    res.json(user);
   } catch (error) {
     res.status(404);
     res.json({ error: error });

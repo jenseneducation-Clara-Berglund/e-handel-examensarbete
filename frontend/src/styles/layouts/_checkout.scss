@@ -8,16 +8,17 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  padding: 2em;
+  padding: 2em 0em;
+  margin: 0;
 }
 
 .checkoutHeaderContainer {
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: bold;
   color: white;
   display: flex;
-
-  margin-top: 3em;
+  margin: 0;
+  margin-top: 1em;
 }
 
 .checkoutInfoContainer {
@@ -27,19 +28,18 @@
   padding: 1em;
   background-color: white;
   border-radius: 20px;
-  padding: 5em;
+  padding: 2em;
   > label {
-    font-size: 32px;
+    font-size: 16px;
     font-weight: bolder;
     color: black;
     margin-top: 1em;
-    margin-bottom: 1em;
   }
 
   > input {
     align-self: stretch;
     height: 3em;
-    font-size: 20px;
+    font-size: 16px;
     padding: 0;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -52,7 +52,7 @@
   }
 
   > p {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -60,9 +60,9 @@
   flex-direction: column;
   display: flex;
   align-items: flex-start;
-  width: 40em;
+  width: 30em;
   flex: 1;
-  font-size: 30px;
+  font-size: 16px;
   font-weight: bolder;
 }
 
@@ -71,28 +71,27 @@
   align-items: center;
   > input[type='radio'] {
     border: 0px;
-    width: 2em;
-    height: 2em;
+    width: 1em;
+    height: 1em;
   }
 }
 
 #completePayment {
   display: flex;
-  margin-top: 2em;
+  margin-top: 1em;
   flex: 1;
-  font-size: 28px;
+  font-size: 20px;
   align-self: flex-end;
   font-weight: bold;
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: $color-primary;
-  height: 3em;
-  width: 15em;
+  background-color: black;
+  width: 100%;
   cursor: pointer;
   > p {
-    flex: 1;
     color: white;
     margin: 0;
+    font-size: 1em;
   }
 }

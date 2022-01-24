@@ -16,27 +16,27 @@
 }
 
 .modal {
-  width: 100em;
-  height: 100em;
   display: flex;
   background-color: white;
   justify-content: center;
   border-radius: 2em;
   align-items: center;
+  padding: 2em;
 }
 .modalContent {
   flex-direction: column;
   align-self: center;
   justify-self: center;
   display: flex;
-
+  padding: 2em;
   img {
-    width: 50em;
-    height: 50em;
     object-fit: fill;
+    width: 15em;
+    height: 15em;
   }
   h5 {
-    font-size: 50px;
+    font-size: 30px;
+    margin: 0;
   }
 }
 

@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     searchProducts(searchTerm) {
-      console.log('searching for  ' + searchTerm)
       if (searchTerm === null) {
         this.filteredProducts = this.products
         return
@@ -45,9 +44,7 @@ export default {
     ...mapActions(['getCart', 'getProducts'])
   },
   watch: {
-    async userToken(newToken, oldToken) {
-      console.log(newToken, oldToken)
-      // Our fancy notification (2).
+    async userToken() {
       await this.getCart()
       await this.getProducts()
       this.searchProducts(null)

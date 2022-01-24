@@ -101,6 +101,9 @@ module.exports = {
       .write();
     return db.get("users").find({ email: email });
   },
+  getUser: (email) => {
+    return db.get("users").find({ email: email }).value();
+  },
 
   getOrCreateCartForUser: (email) => {
     let cart = db.get("carts").find({ userId: email }).value();
@@ -119,7 +122,6 @@ module.exports = {
     let cart = db.get("carts").find({ userId: email });
     var cartProducts = cart.value().products;
     const product = db.get("products").find({ id: productId }).value();
-    console.log(product, productId, email);
 
     let randomId = uuidv4();
 
@@ -142,8 +144,7 @@ module.exports = {
       .get("users")
       .find({ email: email, password: encryptPassword(password) })
       .value();
-    console.log(user);
-    if (user !== null) {
+    if (user !== null && user !== undefined) {
       // credentials OK. user allowed. Create session object
       let expire_time = new Date().getTime() + 4 * 24 * 60 * 60 * 1000;
       let sessionObject = {
@@ -180,31 +181,34 @@ module.exports = {
   },
   createOrder: (userId, name, address, phone, paymentMethod) => {
     let cart = db.get("carts").find({ userId: userId });
-    console.log("userId", userId);
-    console.log(cart.value());
-    order = {
-      userId,
-      status: "new",
-      name,
-      userId,
-      address,
-      phone,
-      paymentMethod,
-      products: cart.value().products,
+    var options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     };
+    var today = new Date();
     let res = db
       .get("orders")
       .push({
-        order,
+        userId,
+        orderId: uuidv4(),
+        date: today.toLocaleDateString("sv-SE", options),
+        status: "new",
+        name,
+        userId,
+        address,
+        phone,
+        paymentMethod,
+        products: cart.value().products,
       })
       .write();
     cart.assign({ products: [] }).write();
-    return order;
+    return res;
   },
   getOrderHistory: (userId) => {
-    let orders = db("orders").where({ order: { userId } });
-
-    return orders;
+    let orders = db.get("orders").value();
+    return orders.filter((order) => order.userId == userId);
   },
 
   // // retrieves the right cart
