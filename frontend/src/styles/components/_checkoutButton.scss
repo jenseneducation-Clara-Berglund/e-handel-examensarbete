@@ -1,8 +1,11 @@
 @import '../base/colors';
 
 .proceedToCheckoutBtn {
-  height: 50px;
-  width: 130px;
+  height: 3em;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
   background-color: $color-alt2;
   color: $color-secondary;
   cursor: pointer;

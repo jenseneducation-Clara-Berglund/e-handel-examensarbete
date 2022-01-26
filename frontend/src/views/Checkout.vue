@@ -1,8 +1,5 @@
 <template>
   <div class="checkoutContainer">
-    <div class="checkoutHeaderContainer">
-      <div>CHECKOUT</div>
-    </div>
     <div class="checkoutInfoContainer">
       <div class="table">
         <div class="tableColHead">Id</div>
@@ -49,7 +46,7 @@
           >
             <input type="radio" id="kort" name="payment_option" />
             <div style="width: 1em" />
-            <div>Kort</div>
+            <h3>Kort</h3>
           </div>
           <div
             class="paymentOption"
@@ -57,7 +54,7 @@
           >
             <input type="radio" id="swish" name="payment_option" />
             <div style="width: 1em" />
-            <div>Swish</div>
+            <h3>Swish</h3>
           </div>
           <div
             class="paymentOption"
@@ -65,7 +62,7 @@
           >
             <input type="radio" id="faktura" name="payment_option" />
             <div style="width: 1em" />
-            <div>Faktura</div>
+            <h3>Faktura</h3>
           </div>
         </div>
       </form>

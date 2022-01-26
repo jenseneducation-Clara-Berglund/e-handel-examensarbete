@@ -1,4 +1,5 @@
 @import '../base/colors';
+@import '../base/sizes';
 
 .home {
   background-color: $color-primary;
@@ -6,9 +7,4 @@
   display: flex;
   flex-direction: column;
   height: inherit;
-}
-
-.logo {
-  color: $color-secondary;
-  font-size: 4em;
 }

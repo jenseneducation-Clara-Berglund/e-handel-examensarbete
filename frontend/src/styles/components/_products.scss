@@ -1,22 +1,26 @@
 @import '../base/colors';
+@import '../base/sizes';
 
 #productsContainer {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  align-self: center;
   background-color: $color-primary;
-  width: 80%;
 }
 
 #productItemsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0 1em;
+  margin-bottom: 2em;
 }
 
 .search {
   display: flex;
+}
+@media screen and (min-width: $medium) {
+  #productItemsContainer {
+    max-width: 70%;
+  }
 }

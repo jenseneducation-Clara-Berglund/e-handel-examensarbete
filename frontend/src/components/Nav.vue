@@ -7,14 +7,23 @@
     </div>
     <div id="iconContainer">
       <img
+        id="cartImage"
         v-if="cart.products.length > 0"
         src="@/assets/2bag.png"
         @click="$emit('cart-btn-clicked')"
       />
-      <div v-if="cart.products.length > 0" class="itemCounterContainer">
+      <div
+        id="cartCount"
+        v-if="cart.products.length > 0"
+        class="itemCounterContainer"
+      >
         {{ cart.products.length }}
       </div>
-      <img src="@/assets/2user.png" @click="$emit('profile-btn-clicked')" />
+      <img
+        id="profileImage"
+        src="@/assets/2user.png"
+        @click="$emit('profile-btn-clicked')"
+      />
     </div>
   </div>
 </template>

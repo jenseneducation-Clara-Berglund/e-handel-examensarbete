@@ -1,6 +1,5 @@
 <template>
   <div class="cartContainer">
-    <h1>Din kundvagn</h1>
     <div class="cartItemContainer">
       <CartItem
         v-for="product in cart.products"
@@ -9,10 +8,7 @@
         @remove-product-from-cart="removeProductFromCart"
       />
     </div>
-    <div class="checkoutBtnAndTotalContainer">
-      <p>{{ 'Total ' + this.calculatePrice() + ':-' }}</p>
-      <CheckoutButton @click.native="$router.push('/checkout')" />
-    </div>
+    <CheckoutButton @click.native="$router.push('/checkout')" />
   </div>
 </template>
 <script>
@@ -27,11 +23,6 @@ export default {
     ...mapActions(['getCart', 'removeProductFromCart']),
     removeProduct(cartProductId) {
       this.removeProductFromCart(cartProductId)
-    },
-    calculatePrice() {
-      let price = this.cart.products.reduce((e, a) => e + parseInt(a.price), 0)
-      console.log(typeof price)
-      return price
     }
   },
 

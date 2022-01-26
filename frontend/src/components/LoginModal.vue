@@ -1,10 +1,10 @@
 <template>
   <div class="loginModalContainer" @click.self="$emit('close')">
     <div class="loginModal">
-      <h1>
+      <p>
         Access to this site is restricted to invited users.<br />Please log in
         and access billions of beautiful hand bags
-      </h1>
+      </p>
       <label v-if="registerMode" for="fullNameInput">Fullständigt namn</label>
       <input
         v-if="registerMode"
@@ -31,10 +31,18 @@
       >
         <p>LOGGA IN</p>
       </div>
-      <div v-if="!registerMode" v-on:click="registerMode = true">
+      <div
+        class="notAMemberAlreadyAMember"
+        v-if="!registerMode"
+        v-on:click="registerMode = true"
+      >
         Not a member? <u>Sign up!</u>
       </div>
-      <div v-if="registerMode" v-on:click="registerMode = false">
+      <div
+        class="notAMemberAlreadyAMember"
+        v-if="registerMode"
+        v-on:click="registerMode = false"
+      >
         Already a member? <u>Sign in!</u>
       </div>
     </div>

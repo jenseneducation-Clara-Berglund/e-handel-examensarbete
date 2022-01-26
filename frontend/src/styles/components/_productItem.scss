@@ -1,18 +1,21 @@
+@import '../base/sizes';
+
 .productItemContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 2em;
+  width: 10em;
+  margin: 1em;
   background-color: white;
-  padding: 2em;
+  padding: 1em;
   border-radius: 1em;
   box-shadow: 4px 4px 0px 2px rgba(0, 0, 0, 0.2);
 }
 
 .productItemImage {
-  height: 10em;
-  width: 10em;
+  height: 7em;
+  width: 7em;
   object-fit: contain;
   cursor: pointer;
 }
@@ -20,4 +23,39 @@
 h5 {
   font-size: 20px;
   text-transform: capitalize;
+  margin: 10px;
+}
+
+@media screen and (max-width: $medium) {
+  .productItemContainer {
+    width: 10em;
+  }
+  .productItemImage {
+    height: 7em;
+    width: 7em;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  h5 {
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: $semi-small) {
+  .productItemContainer {
+    width: 70%;
+  }
+  .productItemImage {
+    height: 8em;
+    width: 8em;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  h5 {
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: 10px;
+  }
 }

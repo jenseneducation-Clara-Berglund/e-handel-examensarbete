@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 
 // Constants
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const HOST = "0.0.0.0";
 
 // App
@@ -40,6 +40,16 @@ app.post("/user/register/", (req, res) => {
     res.json(user);
   } catch (error) {
     res.status(403);
+    res.json({ error: error });
+  }
+});
+
+app.get("/", (req, res) => {
+  try {
+    res.status(200);
+    res.json("Hello, world!");
+  } catch (error) {
+    res.status(404);
     res.json({ error: error });
   }
 });
