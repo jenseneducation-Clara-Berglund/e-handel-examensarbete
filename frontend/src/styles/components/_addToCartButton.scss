@@ -11,6 +11,10 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
+.addToCartSuccess {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: $medium) {
   .addToCart {
     height: 35px;
@@ -20,5 +24,8 @@
     border-radius: 0.5em;
     border-style: none;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  .addToCartSuccess {
+    opacity: 0.7;
   }
 }

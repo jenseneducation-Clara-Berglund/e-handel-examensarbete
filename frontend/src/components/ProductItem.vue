@@ -9,7 +9,7 @@
       <h5>{{ product.name }}</h5>
       <h5>{{ product.price }} kr</h5>
     </div>
-    <AddToCartButton @click.native="addToCart()" />
+    <AddToCartButton @on-add-to-cart-clicked="addToCart()" />
   </div>
 </template>
 <script>

@@ -8,7 +8,7 @@
           <h4>{{ product.price }} kr</h4>
         </div>
         <div>
-          <AddToCartButton @click.native="addToCart()" />
+          <AddToCartButton @on-add-to-cart-clicked="addToCart()" />
         </div>
       </div>
     </div>

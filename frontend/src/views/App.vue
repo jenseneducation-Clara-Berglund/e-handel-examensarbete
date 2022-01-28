@@ -5,7 +5,7 @@
       @profile-btn-clicked="goToProfile"
       @logo-btn-clicked="goToHome"
     />
-    <div style="display: flex; ustify-content: center">
+    <div style="display: flex; justify-content: center">
       <router-view />
     </div>
     <LoginModal v-if="this.userToken === null" />

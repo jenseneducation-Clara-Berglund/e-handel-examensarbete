@@ -210,20 +210,4 @@ module.exports = {
     let orders = db.get("orders").value();
     return orders.filter((order) => order.userId == userId);
   },
-
-  // // retrieves the right cart
-  // getCartById: id => {
-  //   const cart = db
-  //     .get("shoppingCarts")
-  //     .find({ id: id })
-  //     .value();
-  //   return cart;
-  // },
-
-  // updateCartWithProducts: (id, products) => {
-  //   db.get("shoppingCarts")
-  //     .find({ id: id })
-  //     .assign({ products: products })
-  //     .write();
-  // }
 };
